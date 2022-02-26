@@ -1,0 +1,29 @@
+<clr-datagrid>
+    <clr-dg-column [clrDgField]="'issueNo'" [clrDgColType]="'number'">Issue No</clr-dg-column>
+    <clr-dg-column [clrDgField]="'fecha'">Fecha</clr-dg-column>
+    <clr-dg-column [clrDgField]="'pais'">Pais</clr-dg-column>
+    <clr-dg-column [clrDgField]="'precio'">Precio</clr-dg-column>
+    <clr-dg-column [clrDgField]="'Indicador'">Indicador</clr-dg-column>
+    <clr-dg-column [clrDgField]="'diario'">Diario</clr-dg-column>
+    <clr-dg-column [clrDgField]="'porcentaje'">Porcentual</clr-dg-column>
+    <clr-dg-column [clrDgField]="'semanal'">Semanal</clr-dg-column>
+    <clr-dg-column [clrDgField]="'mensual'">Mensual</clr-dg-column>
+    <clr-dg-column [clrDgField]="'anual'">Anual</clr-dg-column>
+    
+
+    <clr-dg-row *clrDgItems="let issue of issues">
+      <clr-dg-action-overflow>
+        <button class="action-item" (click)="selectedIssue = issue">Resolve</button>
+      </clr-dg-action-overflow>
+      
+      <clr-dg-cell>{{issue.issueNo}}</clr-dg-cell>
+      <clr-dg-cell>{{issue.type}}</clr-dg-cell>
+      <clr-dg-cell>{{issue.title}}</clr-dg-cell>
+      <clr-dg-cell>{{issue.description}}</clr-dg-cell>
+      <clr-dg-cell>
+        <span class="label" [class.label-danger]="issue.priority === 'high'">{{issue.priority}}</span>
+      </clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{issues.length}} issues</clr-dg-footer>
+  </clr-datagrid>
